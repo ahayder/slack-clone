@@ -15,6 +15,12 @@ function Sidebar() {
                 </h3>
                 </div>
                 <CreateIcon />
+                <SidebarOption />
+                <SidebarOption />
+                <SidebarOption />
+                <SidebarOption />
+                <SidebarOption />
+                <SidebarOption />
             </div>
         </div>
     )
