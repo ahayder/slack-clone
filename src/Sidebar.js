@@ -13,6 +13,7 @@ import AppsIcon from '@material-ui/icons/Apps'
 import ExpandLessIcon from '@material-ui/icons/ExpandLess'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import AddIcon from '@material-ui/icons/Add'
+import db from './firebase'
 
 function Sidebar() {
 
@@ -53,6 +54,9 @@ function Sidebar() {
             <SidebarOption Icon={ExpandMoreIcon} title="Channels" />
             <hr />
             <SidebarOption Icon={AddIcon} title="Add channel" />
+            {channels.map(channel => (
+              <SidebarOption title={channel.name} id={channel.id} />
+            ))}
         </div>
     )
 }
