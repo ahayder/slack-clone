@@ -6,7 +6,7 @@ import  firebase from 'firebase'
 
 function ChatInput({channelName, channelId}) {
 
-  const [input, setinput] = useState('')
+  const [input, setInput] = useState('')
   const [{ user }] = useStateValue();
 
   const sendMessage = e => {
@@ -16,9 +16,11 @@ function ChatInput({channelName, channelId}) {
       db.collection('rooms').doc(channelId)
       .collection('messages').add({
         message: input,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         user: user.displayName,
         userImage: user.photoURL
+      }).then(() => {
+        setInput('')
       })
     }
   }
@@ -28,7 +30,7 @@ function ChatInput({channelName, channelId}) {
       <form action="">
         <input
         value={input}
-        onChange={(e) => setinput(e.target.value)}
+        onChange={(e) => setInput(e.target.value)}
         placeholder={`Message #${channelName}`} />
         <button type="submit" onClick={sendMessage}>
           SEND

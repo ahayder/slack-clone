@@ -36,10 +36,10 @@ function Sidebar() {
         <div className="sidebar">
             <div className="sidebar__header">
                 <div className="sidebar__info">
-                    <h2>Clever Programmer</h2>
+                    <h2>Slack Clone</h2>
                     <h3>
                         <FiberManualRecordIcon />
-                    Ali Hayder
+                    {user?.displayName}
                 </h3>
                 </div>
                 <CreateIcon />
